@@ -21,7 +21,6 @@ class TaskController extends Controller
         'description' => 'nullable|string',
         'status' => 'required|string',
         'priority' => 'required|string',
-        'assigned_to' => 'required|exists:users,id',
         'due_date' => 'required|date',
     ]);
 
@@ -30,8 +29,6 @@ class TaskController extends Controller
         'description' => $request->description,
         'status' => $request->status,
         'priority' => $request->priority,
-        'assigned_to' => $request->assigned_to,
-        'created_by' => auth()->id(), // assuming user is authenticated
         'due_date' => $request->due_date,
     ]);
 

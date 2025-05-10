@@ -15,18 +15,23 @@ class Task extends Model
         'description',
         'status',
         'priority',
-        'assigned_to',
-        'created_by',
         'due_date'
     ];
 
-    public function assignee() {
-        return $this->belongsTo(User::class, 'assigned_to');
-    }
+    public function employee(){
+    return $this->belongsTo(Employee::class, 'assigned_to');
+}
+
 
     public function creator() {
         return $this->belongsTo(User::class, 'created_by');
     }
+
+    public function project()
+{
+    return $this->hasOne(Project::class);
+}
+
 }
 
 
